@@ -28,6 +28,38 @@ class Eyes:
         self.updateCanvas(self.eyes,3,4,255,255,255)
         self.updateCanvas(self.pupils,4,6,0,0,138)
 
+class Feet:
+    feet = [
+    [0,1,1,0,1,1,1,0,0,1,1,1,0,1,1,0],
+    [0,1,0,0,0,1,1,0,0,1,1,0,0,0,1,0],
+    [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+    ]
+
+    feet2 = [
+    [0,1,1,1,1,0,1,1,1,1,0,1,1,1,1,0],
+    [0,0,1,1,0,0,0,1,1,0,0,0,1,1,0,0],
+    [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+    ]
+    flip = False
+
+    def __init__(self, canvas, color):
+        self.color = color
+
+    def updateCanvas(self, pixels,x,y, r,g,b):
+      for rowIndex, row in enumerate(pixels):
+        for colIndex, col in enumerate(row):
+          if col==1:
+            self.canvas.set_pixel(rowIndex+y, colIndex+x, r,g,b)
+
+    def draw(self):
+        if(self.flip):
+          self.updateCanvas(self.feet2, 0,13,r,g,b)
+        else:
+          self.updateCanvas(self.feet,0,13,r,g,b)
+
+        self.flip = not self.flip
+
+
 class Ghost:
 
     body = [
@@ -45,17 +77,6 @@ class Ghost:
     [1,1,1,1,1,1,1,1,1,1,1,1,1,1]
     ]
 
-    feet = [
-    [0,1,1,0,1,1,1,0,0,1,1,1,0,1,1,0],
-    [0,1,0,0,0,1,1,0,0,1,1,0,0,0,1,0],
-    [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
-    ]
-
-    feet2 = [
-    [0,1,1,1,1,0,1,1,1,1,0,1,1,1,1,0],
-    [0,0,1,1,0,0,0,1,1,0,0,0,1,1,0,0],
-    [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
-    ]
 
     flip = False
 
@@ -63,6 +84,7 @@ class Ghost:
     def __init__(self, canvas, color, x=1, y=1):
             self.color = color
             self.eyes = Eyes(canvas)
+            self.feet = Feet(canvas, color)
             self.position = (x, y)
             self.canvas = canvas
 
@@ -76,12 +98,7 @@ class Ghost:
         r, g, b = self.color
         self.updateCanvas(self.body,1,1,r,g,b)
         self.eyes.draw()
-        if(self.flip):
-          self.updateCanvas(self.feet2, 0,13,r,g,b)
-        else:
-          self.updateCanvas(self.feet,0,13,r,g,b)
-
-        self.flip = not self.flip
+        self.feet.draw()
 
     def update(self):
         return
