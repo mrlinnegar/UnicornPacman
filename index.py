@@ -42,7 +42,7 @@ feet2 = [
 ]
 
 class Ghost:
-    def __init__(self, canvas, x=1, y=1, color):
+    def __init__(self, canvas, color, x=1, y=1):
             self.color = color
             self.position = (x, y)
             self.canvas = canvas
@@ -72,7 +72,7 @@ class Ghost:
     def update(self):
         return
 
-ghost = Ghost(unicornhathd,1,1, (0,255,0))
+ghost = Ghost(unicornhathd, (0,255,0),1,1)
 
 while True:
   unicornhathd.clear()
