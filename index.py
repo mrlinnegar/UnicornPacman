@@ -24,7 +24,7 @@ class Eyes:
           if col==1:
             self.canvas.set_pixel(rowIndex+y, colIndex+x, r,g,b)
 
-    def draw():
+    def draw(self):
         self.updateCanvas(self.eyes,3,4,255,255,255)
         self.updateCanvas(self.pupils,4,6,0,0,138)
 
