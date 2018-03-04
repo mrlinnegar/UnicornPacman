@@ -52,6 +52,7 @@ class Feet:
             self.canvas.set_pixel(rowIndex+y, colIndex+x, r,g,b)
 
     def draw(self):
+        r, g, b = self.color
         if(self.flip):
           self.updateCanvas(self.feet2, 0,13,r,g,b)
         else:
