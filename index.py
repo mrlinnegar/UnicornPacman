@@ -9,7 +9,10 @@ class Drawable:
       for rowIndex, row in enumerate(pixels):
         for colIndex, col in enumerate(row):
           if col==1:
-            self.canvas.set_pixel(rowIndex+y, colIndex+x, r,g,b)
+            if(rowIndex+y > 15 || colIndex +x > 15):
+                return
+            else:
+                self.canvas.set_pixel(rowIndex+y, colIndex+x, r,g,b)
 
 class Eyes(Drawable):
     eyes = [
@@ -30,10 +33,10 @@ class Eyes(Drawable):
 
     def update(self):
         return True
-        
+
     def draw(self):
-        self.updateCanvas(self.eyes,2,4,255,255,255)
-        self.updateCanvas(self.pupils,2,6,0,0,138)
+        self.updateCanvas(self.eyes,4,4,255,255,255)
+        self.updateCanvas(self.pupils,5,6,0,0,138)
 
 class Feet(Drawable):
     feet = [
