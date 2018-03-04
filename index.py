@@ -11,7 +11,7 @@ class Drawable:
           if col==1:
             self.canvas.set_pixel(rowIndex+y, colIndex+x, r,g,b)
 
-class Eyes:
+class Eyes(Drawable):
     eyes = [
     [0,1,1,0,0,0,0,1,1,0],
     [1,1,1,1,0,0,1,1,1,1],
@@ -32,7 +32,7 @@ class Eyes:
         self.updateCanvas(self.eyes,2,4,255,255,255)
         self.updateCanvas(self.pupils,2,6,0,0,138)
 
-class Feet:
+class Feet(Drawable):
     feet = [
     [0,1,1,0,1,1,1,0,0,1,1,1,0,1,1,0],
     [0,1,0,0,0,1,1,0,0,1,1,0,0,0,1,0],
@@ -61,7 +61,7 @@ class Feet:
         self.flip = not self.flip
 
 
-class Ghost:
+class Ghost(Drawable):
 
     body = [
     [0,0,0,0,0,1,1,1,1,1,0,0,0,0],
