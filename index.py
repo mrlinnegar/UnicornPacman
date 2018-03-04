@@ -56,18 +56,20 @@ class Ghost:
             self.canvas.set_pixel(rowIndex+y, colIndex+x, r,g,b)
 
     def draw(self):
-        updateCanvas(body,1,1,255,0,0)
-        updateCanvas(eyes,3,4,255,255,255)
-        updateCanvas(pupils,4,6,0,0,138)
+        self.updateCanvas(body,1,1,255,0,0)
+        self.updateCanvas(eyes,3,4,255,255,255)
+        self.updateCanvas(pupils,4,6,0,0,138)
+
         if(self.flip):
-          updateCanvas(feet2, 0,13,255,0,0)
+          self.updateCanvas(feet2, 0,13,255,0,0)
         else:
-          updateCanvas(feet,0,13,255,0,0)
+          self.updateCanvas(feet,0,13,255,0,0)
+
         self.flip = not self.flip
 
     def update(self):
         return
-        
+
 ghost = Ghost(unicornhathd,1,1)
 
 while True:
