@@ -47,8 +47,9 @@ class Feet:
     flip = False
 
     def __init__(self, canvas, color):
-        self.color = color
         Drawable.__init__(self, canvas)
+        self.color = color
+
 
     def draw(self):
         r, g, b = self.color
@@ -86,8 +87,6 @@ class Ghost:
             self.eyes = Eyes(canvas)
             self.feet = Feet(canvas, color)
             self.position = (x, y)
-
-
 
     def draw(self):
         r, g, b = self.color
