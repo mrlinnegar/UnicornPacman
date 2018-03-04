@@ -94,8 +94,8 @@ class Ghost():
 
     def __init__(self, canvas, color, x=1, y=1):
             self.color = color
-            self.body = Body(canvas, self.color)
-            self.feet = Feet(canvas, self.color)
+            self.body = Body(canvas)
+            self.feet = Feet(canvas)
             self.eyes = Eyes(canvas)
             self.position = (x, y)
 
