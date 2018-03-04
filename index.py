@@ -9,7 +9,7 @@ class Drawable:
       for rowIndex, row in enumerate(pixels):
         for colIndex, col in enumerate(row):
           if col==1:
-            if(rowIndex+y > 15 || colIndex +x > 15):
+            if(rowIndex+y > 15 or colIndex +x > 15):
                 return
             else:
                 self.canvas.set_pixel(rowIndex+y, colIndex+x, r,g,b)
