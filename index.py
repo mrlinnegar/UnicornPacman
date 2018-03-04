@@ -1,6 +1,5 @@
 import unicornhathd
 import time
-unicornhathd.rotation(0)
 
 
 class Ghost:
@@ -60,16 +59,16 @@ class Ghost:
 
     def draw(self):
         r, g, b = self.color
-        self.updateCanvas(body,1,1,r,g,b)
-        self.updateCanvas(eyes,3,4,255,255,255)
-        self.updateCanvas(pupils,4,6,0,0,138)
+        self.updateCanvas(self.body,1,1,r,g,b)
+        self.updateCanvas(self.eyes,3,4,255,255,255)
+        self.updateCanvas(self.pupils,4,6,0,0,138)
 
-        if(flip):
-          self.updateCanvas(feet2, 0,13,r,g,b)
+        if(self.flip):
+          self.updateCanvas(self.feet2, 0,13,r,g,b)
         else:
-          self.updateCanvas(feet,0,13,r,g,b)
+          self.updateCanvas(self.feet,0,13,r,g,b)
 
-        flip = not flip
+        self.flip = not self.flip
 
     def update(self):
         return
