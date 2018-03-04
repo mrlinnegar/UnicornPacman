@@ -1,8 +1,7 @@
 import unicornhathd
 import time
 
-
-class Ghost:
+class Eyes:
     eyes = [
     [0,1,1,0,0,0,0,1,1,0],
     [1,1,1,1,0,0,1,1,1,1],
@@ -15,6 +14,21 @@ class Ghost:
     [1,1,0,0,0,0,1,1],
     [1,1,0,0,0,0,1,1]
     ]
+
+    def __init__(self, canvas):
+        self.canvas = canvas
+
+    def updateCanvas(self, pixels,x,y, r,g,b):
+      for rowIndex, row in enumerate(pixels):
+        for colIndex, col in enumerate(row):
+          if col==1:
+            self.canvas.set_pixel(rowIndex+y, colIndex+x, r,g,b)
+
+    def draw():
+        self.updateCanvas(self.eyes,3,4,255,255,255)
+        self.updateCanvas(self.pupils,4,6,0,0,138)
+
+class Ghost:
 
     body = [
     [0,0,0,0,0,1,1,1,1,1,0,0,0,0],
@@ -48,6 +62,7 @@ class Ghost:
 
     def __init__(self, canvas, color, x=1, y=1):
             self.color = color
+            self.eyes = Eyes(canvas)
             self.position = (x, y)
             self.canvas = canvas
 
@@ -60,9 +75,7 @@ class Ghost:
     def draw(self):
         r, g, b = self.color
         self.updateCanvas(self.body,1,1,r,g,b)
-        self.updateCanvas(self.eyes,3,4,255,255,255)
-        self.updateCanvas(self.pupils,4,6,0,0,138)
-
+        self.eyes.draw()
         if(self.flip):
           self.updateCanvas(self.feet2, 0,13,r,g,b)
         else:
