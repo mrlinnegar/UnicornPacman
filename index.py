@@ -124,7 +124,7 @@ try:
     while True:
       unicornhathd.clear()
       ghost.update()
-      ghost.setColor((0,255,255))
+      #ghost.setColor((0,255,255))
       ghost.draw()
       unicornhathd.show()
       time.sleep(0.1)
