@@ -41,7 +41,7 @@ feet2 = [
 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 ]
 
-def Ghost:
+class Ghost:
     def __init__(self, canvas, x=1, y=1):
             self.position = (x, y)
             self.canvas = canvas
