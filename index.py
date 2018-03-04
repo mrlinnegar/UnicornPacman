@@ -50,7 +50,6 @@ class Feet(Drawable):
         Drawable.__init__(self, canvas)
         self.color = color
 
-
     def draw(self):
         r, g, b = self.color
         if(self.flip):
@@ -60,8 +59,7 @@ class Feet(Drawable):
 
         self.flip = not self.flip
 
-
-class Ghost(Drawable):
+class Body(Drawable):
 
     body = [
     [0,0,0,0,0,1,1,1,1,1,0,0,0,0],
@@ -77,31 +75,39 @@ class Ghost(Drawable):
     [1,1,1,1,1,1,1,1,1,1,1,1,1,1],
     [1,1,1,1,1,1,1,1,1,1,1,1,1,1]
     ]
-
-    flip = False
-
-
-    def __init__(self, canvas, color, x=1, y=1):
-            Drawable.__init__(self, canvas)
-            self.color = color
-            self.eyes = Eyes(canvas)
-            self.feet = Feet(canvas, color)
-            self.position = (x, y)
+    def __init__(self, canvas, color):
+        Drawable.__init__(self, canvas)
+        self.color = color
 
     def draw(self):
         r, g, b = self.color
         self.updateCanvas(self.body,1,1,r,g,b)
+
+class Ghost():
+
+    def __init__(self, canvas, color, x=1, y=1):
+            self.color = color
+            self.body = Body(canvas, self.color)
+            self.feet = Feet(canvas, self.color)
+            self.eyes = Eyes(canvas)
+            self.position = (x, y)
+
+    def update(self):
+        self.eyes.update()
+        self.feet.update()
+        return True
+
+    def draw(self):
+        self.body.draw()
         self.eyes.draw()
         self.feet.draw()
 
-    def update(self):
-        return
-
-ghost = Ghost(unicornhathd, (0,255,0),1,1)
+ghost = Ghost(unicornhathd, (255,0,0),1,1)
 
 try:
     while True:
       unicornhathd.clear()
+      ghost.update()
       ghost.draw()
       unicornhathd.show()
       time.sleep(0.1)
