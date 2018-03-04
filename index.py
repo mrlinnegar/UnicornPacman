@@ -28,6 +28,9 @@ class Eyes(Drawable):
     def __init__(self, canvas):
         Drawable.__init__(self, canvas)
 
+    def update(self):
+        return True
+        
     def draw(self):
         self.updateCanvas(self.eyes,2,4,255,255,255)
         self.updateCanvas(self.pupils,2,6,0,0,138)
@@ -49,6 +52,9 @@ class Feet(Drawable):
     def __init__(self, canvas, color):
         Drawable.__init__(self, canvas)
         self.color = color
+
+    def update(self):
+        return True
 
     def draw(self):
         r, g, b = self.color
