@@ -66,7 +66,8 @@ class Ghost:
         self.flip = not self.flip
 
     def update(self):
-
+        return
+        
 ghost = Ghost(unicornhathd,1,1)
 
 while True:
