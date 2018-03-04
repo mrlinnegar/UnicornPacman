@@ -44,6 +44,7 @@ class Feet:
 
     def __init__(self, canvas, color):
         self.color = color
+        self.canvas = canvas
 
     def updateCanvas(self, pixels,x,y, r,g,b):
       for rowIndex, row in enumerate(pixels):
