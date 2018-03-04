@@ -52,15 +52,14 @@ class Feet(Drawable):
     ]
     flip = False
 
-    def __init__(self, canvas, color):
+    def __init__(self, canvas):
         Drawable.__init__(self, canvas)
-        self.color = color
 
     def update(self):
         return True
 
-    def draw(self):
-        r, g, b = self.color
+    def draw(self, color):
+        r, g, b = color
         if(self.flip):
           self.updateCanvas(self.feet2, 0,13,r,g,b)
         else:
@@ -84,12 +83,11 @@ class Body(Drawable):
     [1,1,1,1,1,1,1,1,1,1,1,1,1,1],
     [1,1,1,1,1,1,1,1,1,1,1,1,1,1]
     ]
-    def __init__(self, canvas, color):
+    def __init__(self, canvas):
         Drawable.__init__(self, canvas)
-        self.color = color
 
-    def draw(self):
-        r, g, b = self.color
+    def draw(self, color):
+        r, g, b = color
         self.updateCanvas(self.body,1,1,r,g,b)
 
 class Ghost():
@@ -107,9 +105,12 @@ class Ghost():
         return True
 
     def draw(self):
-        self.body.draw()
+        self.body.draw(self.color)
+        self.feet.draw(self.color)
         self.eyes.draw()
-        self.feet.draw()
+
+    def setColor(self, color):
+        self.color = color
 
 ghost = Ghost(unicornhathd, (255,0,0),1,1)
 
@@ -117,6 +118,7 @@ try:
     while True:
       unicornhathd.clear()
       ghost.update()
+      ghost.setColor((0,255,255))
       ghost.draw()
       unicornhathd.show()
       time.sleep(0.1)
