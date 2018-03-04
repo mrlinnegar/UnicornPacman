@@ -112,7 +112,13 @@ class Ghost():
     def setColor(self, color):
         self.color = color
 
-ghost = Ghost(unicornhathd, (255,0,0),1,1)
+clyde = (136,221,206)
+inky = (247,199,138)
+pinky = (244,197,212)
+blinky = (235, 86, 58)
+
+
+ghost = Ghost(unicornhathd, clyde ,1,1)
 
 try:
     while True:
