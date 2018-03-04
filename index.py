@@ -41,23 +41,36 @@ feet2 = [
 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 ]
 
-def draw(pixels,x,y, r,g,b):
-  for rowIndex, row in enumerate(pixels):
-    for colIndex, col in enumerate(row):
-      if col==1:
-        unicornhathd.set_pixel(rowIndex+y, colIndex+x, r,g,b)
+def Ghost:
+    def __init__(self, canvas, x=1, y=1):
+            self.position = (x, y)
+            self.canvas = canvas
+            self.flip = False
 
-flip = False
+
+
+    def updateCanvas(self, pixels,x,y, r,g,b):
+      for rowIndex, row in enumerate(pixels):
+        for colIndex, col in enumerate(row):
+          if col==1:
+            self.canvas.set_pixel(rowIndex+y, colIndex+x, r,g,b)
+
+    def draw(self):
+        updateCanvas(body,1,1,255,0,0)
+        updateCanvas(eyes,3,4,255,255,255)
+        updateCanvas(pupils,4,6,0,0,138)
+        if(self.flip):
+          updateCanvas(feet2, 0,13,255,0,0)
+        else:
+          updateCanvas(feet,0,13,255,0,0)
+        self.flip = not self.flip
+
+    def update(self):
+
+ghost = Ghost(unicornhathd,1,1)
 
 while True:
   unicornhathd.clear()
-  draw(body,1,1,255,0,0)
-  draw(eyes,3,4,255,255,255)
-  draw(pupils,4,6,0,0,138)
-  if(flip):
-    draw(feet2, 0,13,255,0,0)
-  else:
-    draw(feet,0,13,255,0,0)
-  flip = not flip
+  ghost.draw()
   unicornhathd.show()
   time.sleep(0.1)
