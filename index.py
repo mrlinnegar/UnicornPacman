@@ -75,8 +75,12 @@ class Ghost:
 
 ghost = Ghost(unicornhathd, (0,255,0),1,1)
 
-while True:
-  unicornhathd.clear()
-  ghost.draw()
-  unicornhathd.show()
-  time.sleep(0.1)
+try:
+    while True:
+      unicornhathd.clear()
+      ghost.draw()
+      unicornhathd.show()
+      time.sleep(0.1)
+
+except KeyboardInterrupt:
+    unicornhathd.off()
