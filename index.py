@@ -1,5 +1,7 @@
 import unicornhathd
 import time
+from threading import Thread
+
 
 class Drawable:
     def __init__(self, canvas):
@@ -102,7 +104,6 @@ class Ghost():
     def update(self):
         self.eyes.update()
         self.feet.update()
-        return True
 
     def draw(self):
         self.body.draw(self.color)
@@ -120,14 +121,28 @@ blinky = (235, 86, 58)
 
 ghost = Ghost(unicornhathd, clyde ,1,1)
 
+
+class DrawThread(Thread):
+    counter = 0
+    def __init__(self):
+        Thread.__init__(self)
+        self.daemon = True
+        self.start()
+    
+    def run(self):
+        while True:
+            unicornhathd.clear()
+            ghost.update()
+            ghost.draw()
+            unicornhathd.show()
+            time.sleep(0.1)
+
+
+
 try:
+    DrawThread()
     while True:
-      unicornhathd.clear()
-      ghost.update()
-      #ghost.setColor((0,255,255))
-      ghost.draw()
-      unicornhathd.show()
-      time.sleep(0.1)
+        pass
 
 except KeyboardInterrupt:
     unicornhathd.off()
