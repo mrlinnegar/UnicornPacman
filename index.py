@@ -38,7 +38,7 @@ class Eyes(Drawable):
 
     def draw(self):
         self.updateCanvas(self.eyes,4,4,255,255,255)
-        self.updateCanvas(self.pupils,5,6,0,0,138)
+        self.updateCanvas(self.pupils,6,6,0,0,138)
 
 class Feet(Drawable):
     feet = [
@@ -116,7 +116,7 @@ class Ghost():
 clyde = (136,221,206)
 inky = (247,199,138)
 pinky = (244,197,212)
-blinky = (235, 86, 58)
+blinky = (235, 0, 0)
 
 
 ghost = Ghost(unicornhathd, clyde ,1,1)
@@ -136,7 +136,6 @@ class DrawThread(Thread):
             ghost.draw()
             unicornhathd.show()
             time.sleep(0.1)
-
 
 
 try:
