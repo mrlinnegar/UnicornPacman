@@ -119,7 +119,7 @@ pinky = (244,197,212)
 blinky = (235, 0, 0)
 
 
-ghost = Ghost(unicornhathd, clyde ,1,1)
+ghost = Ghost(unicornhathd, blinky ,1,1)
 
 
 class DrawThread(Thread):
