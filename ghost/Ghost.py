@@ -1,6 +1,6 @@
-from Eyes import Eyes
-from Body import Body
-from Feet import Feet
+from .Eyes import Eyes
+from .Body import Body
+from .Feet import Feet
 
 class Ghost():
     def __init__(self, canvas, color, x=1, y=1):

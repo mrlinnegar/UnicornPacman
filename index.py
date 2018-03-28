@@ -1,7 +1,27 @@
-import unicornhathd
+#import unicornhathd
 import time
-from Ghost import Ghost
+from ghost.Ghost import Ghost
 from threading import Thread
+
+
+class FakeHat():
+    def __init__(self):
+        return
+
+    def clear(self):
+        return
+
+    def set_pixel(self, x, y, r, g, b):
+        return
+
+    def off(self):
+        return
+
+    def show(self):
+        return
+
+unicornhathd = FakeHat()
+
 
 clyde = (136,221,206)
 inky = (247,199,138)
@@ -18,7 +38,7 @@ class DrawThread(Thread):
         Thread.__init__(self)
         self.daemon = True
         self.start()
-    
+
     def run(self):
         while True:
             unicornhathd.clear()
@@ -29,7 +49,7 @@ class DrawThread(Thread):
 
 
 try:
-    print "Starting Ghost animation"
+    print("Starting Ghost animation")
     DrawThread()
     while True:
         pass

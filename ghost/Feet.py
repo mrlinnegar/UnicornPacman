@@ -1,4 +1,4 @@
-from Drawable import Drawable 
+from .Drawable import Drawable 
 
 class Feet(Drawable):
     feet = [
