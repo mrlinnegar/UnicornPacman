@@ -1,4 +1,4 @@
-#import unicornhathd
+import unicornhathd
 import time
 from ghost.Ghost import Ghost
 from threading import Thread
@@ -20,7 +20,7 @@ class FakeHat():
     def show(self):
         return
 
-unicornhathd = FakeHat()
+#unicornhathd = Unicornhathd()
 
 
 clyde = (136,221,206)
