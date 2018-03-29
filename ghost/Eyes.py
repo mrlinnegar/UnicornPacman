@@ -22,6 +22,6 @@ class Eyes(Drawable):
         return True
 
     def draw(self):
-        if not closed:
+        if not self.closed:
             self.updateCanvas(self.eyes,4,4,255,255,255)
             self.updateCanvas(self.pupils,6,6,0,0,138)

@@ -45,7 +45,8 @@ class DrawThread(Thread):
             ghost.update()
             ghost.draw()
             unicornhathd.show()
-            time.sleep(0.1)
+
+        unicornhathd.off()
 
 
 try:
