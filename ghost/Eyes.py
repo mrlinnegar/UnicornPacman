@@ -1,6 +1,7 @@
 from .Drawable import Drawable
 
 class Eyes(Drawable):
+    closed = False
     eyes = [
     [0,1,1,0,0,0,0,1,1,0],
     [1,1,1,1,0,0,1,1,1,1],
@@ -21,5 +22,6 @@ class Eyes(Drawable):
         return True
 
     def draw(self):
-        self.updateCanvas(self.eyes,4,4,255,255,255)
-        self.updateCanvas(self.pupils,6,6,0,0,138)
+        if not closed:
+            self.updateCanvas(self.eyes,4,4,255,255,255)
+            self.updateCanvas(self.pupils,6,6,0,0,138)

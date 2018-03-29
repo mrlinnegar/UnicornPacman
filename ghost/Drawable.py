@@ -1,6 +1,9 @@
 class Drawable:
     def __init__(self, canvas):
         self.canvas = canvas
+    
+    def update(self):
+        return True
 
     def updateCanvas(self, pixels,x,y, r,g,b):
       for rowIndex, row in enumerate(pixels):
