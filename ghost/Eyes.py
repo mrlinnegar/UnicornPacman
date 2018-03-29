@@ -1,7 +1,8 @@
 from .Drawable import Drawable
-
+import time
 class Eyes(Drawable):
     closed = False
+    lastUpdate = time.time()
     eyes = [
     [0,1,1,0,0,0,0,1,1,0],
     [1,1,1,1,0,0,1,1,1,1],
@@ -20,8 +21,8 @@ class Eyes(Drawable):
 
     def update(self):
         now = time.time()
-        if((now - self.lastUpdate) > 1000):
-            self.closed = not self.closedflip
+        if((now - self.lastUpdate) > 1):
+            self.closed = not self.closed
             self.lastUpdate = now
             
         return True
