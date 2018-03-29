@@ -19,6 +19,11 @@ class Eyes(Drawable):
         Drawable.__init__(self, canvas)
 
     def update(self):
+        now = time.time()
+        if((now - self.lastUpdate) > 1000):
+            self.closed = not self.closedflip
+            self.lastUpdate = now
+            
         return True
 
     def draw(self):
