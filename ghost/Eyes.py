@@ -15,6 +15,12 @@ class Eyes(Drawable):
     [1,1,0,0,0,0,1,1]
     ]
 
+    eyes_x = 3
+    eyes_y = 4
+
+    pupils_x = 4
+    pupils_y = 6
+
     def __init__(self, canvas):
         Drawable.__init__(self, canvas)
 
@@ -22,5 +28,5 @@ class Eyes(Drawable):
         return True
 
     def draw(self):
-        self.updateCanvas(self.eyes,3,4,255,255,255)
-        self.updateCanvas(self.pupils,4,6,0,0,138)
+        self.updateCanvas(self.eyes,eyes_x,eyes_y,255,255,255)
+        self.updateCanvas(self.pupils,pupils_x,pupils_y,0,0,138)
