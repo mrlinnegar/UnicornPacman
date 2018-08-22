@@ -28,5 +28,5 @@ class Eyes(Drawable):
         return True
 
     def draw(self):
-        self.updateCanvas(self.eyes,eyes_x,eyes_y,255,255,255)
-        self.updateCanvas(self.pupils,pupils_x,pupils_y,0,0,138)
+        self.updateCanvas(self.eyes,self.eyes_x,self.eyes_y,255,255,255)
+        self.updateCanvas(self.pupils,self.pupils_x,self.pupils_y,0,0,138)
