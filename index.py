@@ -1,26 +1,9 @@
-import unicornhathd
+import unicornhathd as display
 import time
 from ghost.Ghost import Ghost
 from threading import Thread
+from time import sleep
 
-
-class FakeHat():
-    def __init__(self):
-        return
-
-    def clear(self):
-        return
-
-    def set_pixel(self, x, y, r, g, b):
-        return
-
-    def off(self):
-        return
-
-    def show(self):
-        return
-
-#unicornhathd = Unicornhathd()
 
 
 clyde = (136,221,206)
@@ -29,7 +12,7 @@ pinky = (244,197,212)
 blinky = (235, 0, 0)
 
 
-ghost = Ghost(unicornhathd, blinky ,1,1)
+ghost = Ghost(display, blinky ,1,1)
 
 
 class DrawThread(Thread):
@@ -41,10 +24,10 @@ class DrawThread(Thread):
 
     def run(self):
         while True:
-            unicornhathd.clear()
+            display.clear()
             ghost.update()
             ghost.draw()
-            unicornhathd.show()
+            display.show()
 
         unicornhathd.off()
 
@@ -58,5 +41,6 @@ try:
     unicornhathd.off()
 
 except KeyboardInterrupt:
-
+    sleep(1)
+    print("Ending ghost animation")
     unicornhathd.off()
