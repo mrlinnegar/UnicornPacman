@@ -49,11 +49,14 @@ class DrawThread(Thread):
         unicornhathd.off()
 
 
+
 try:
     print("Starting Ghost animation")
     DrawThread()
     while True:
         pass
+    unicornhathd.off()
 
 except KeyboardInterrupt:
+
     unicornhathd.off()
