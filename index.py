@@ -42,5 +42,6 @@ try:
 
 except KeyboardInterrupt:
     sleep(1)
-    print("Ending ghost animation")
     display.off()
+    sleep(1)
+    print("Ending ghost animation")
