@@ -29,7 +29,7 @@ class DrawThread(Thread):
             ghost.draw()
             display.show()
 
-        unicornhathd.off()
+        display.off()
 
 
 
@@ -38,9 +38,9 @@ try:
     DrawThread()
     while True:
         pass
-    unicornhathd.off()
+    display.off()
 
 except KeyboardInterrupt:
     sleep(1)
     print("Ending ghost animation")
-    unicornhathd.off()
+    display.off()
